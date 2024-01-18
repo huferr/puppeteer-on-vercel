@@ -5,7 +5,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  if (req.method === 'POST') {
+  if (req.method === 'GET') {
     const browser = await chromium.puppeteer.launch(
       process.env.NODE_ENV === 'production'
         ? {

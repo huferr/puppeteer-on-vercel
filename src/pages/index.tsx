@@ -12,13 +12,12 @@ export default function Home() {
 
   const takeScreenshot = async () => {
     setLoading(true);
-    const response = await fetch('/api/screenshot', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ url: window.location.href }),
-    })
+    const response = await fetch(
+      `/api/screenshot?url=${window.location.href}`,
+      {
+        method: 'GET',
+      }
+    )
       .then((res) => res.json())
       .then((res) => res.base64);
 
