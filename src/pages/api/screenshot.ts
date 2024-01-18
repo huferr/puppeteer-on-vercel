@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import chromium from '@sparticuz/chromium';
-import puppeteer from 'puppeteer';
+import puppeteer from 'puppeteer-core';
 
 export default async function handler(
   req: NextApiRequest,
