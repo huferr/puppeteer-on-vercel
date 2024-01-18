@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import chromium from 'chrome-aws-lambda';
 
-const takeScreenshot = async (req: NextApiRequest, res: NextApiResponse) => {
+export const takeScreenshot = async (req: NextApiRequest, res: NextApiResponse) => {
   const browser = await chromium.puppeteer.launch(
     process.env.NODE_ENV === 'production'
       ? {
@@ -39,5 +39,3 @@ const takeScreenshot = async (req: NextApiRequest, res: NextApiResponse) => {
       base64: 'data:image/png;base64,' + screenshot,
     });
 };
-
-export default takeScreenshot;
