@@ -1,12 +1,13 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import chromium from 'chrome-aws-lambda';
+import chromium from '@sparticuz/chromium';
+import puppeteer from 'puppeteer';
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   if (req.method === 'GET') {
-    const browser = await chromium.puppeteer.launch(
+    const browser = await puppeteer.launch(
       process.env.NODE_ENV === 'production'
         ? {
             args: chromium.args,

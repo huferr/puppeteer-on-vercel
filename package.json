@@ -9,9 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "chrome-aws-lambda": "^8.0.2",
+    "@sparticuz/chromium": "^106.0.2",
     "next": "14.0.4",
-    "puppeteer-core": "^8.0.0",
+    "puppeteer": "18.0.5",
     "react": "^18",
     "react-dom": "^18"
   },
