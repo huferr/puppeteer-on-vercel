@@ -8,6 +8,7 @@ export default async function handler(
 ) {
   if (req.method === 'GET') {
     const browser = await playwright.launch({
+      ignoreDefaultArgs: ['--disable-extensions'],
       executablePath:
         process.env.NODE_ENV === 'production'
           ? await chromium.executablePath
