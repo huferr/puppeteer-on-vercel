@@ -18,9 +18,6 @@ export default async function handler(
 
     try {
       const response = await fetch(requestUrl.toString()).then((res) => {
-        console.log('res', res);
-        console.log('res to JSON', res.json());
-
         return res.json();
       });
 
