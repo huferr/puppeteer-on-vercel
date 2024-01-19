@@ -153,7 +153,7 @@ export default function Home() {
               style={{ padding: '6px 8px', fontSize: 14, cursor: 'pointer' }}
               onClick={() => window.open(url, '_blank')}
             >
-              Click to see the screenshot taken
+              Click to see the image
             </button>
           </div>
         )}
