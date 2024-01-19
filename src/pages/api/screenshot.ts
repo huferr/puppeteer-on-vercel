@@ -9,10 +9,7 @@ export default async function handler(
 
     const requestUrl = new URL('https://api.apiflash.com/v1/urltoimage');
 
-    requestUrl.searchParams.append(
-      'access_key',
-      process.env.NEXT_PUBLIC_API_FLASH_KEY!
-    );
+    requestUrl.searchParams.append('access_key', process.env.API_FLASH_KEY!);
     requestUrl.searchParams.append('url', url);
     requestUrl.searchParams.append('wait_until', 'network_idle');
     requestUrl.searchParams.append('width', '1920');

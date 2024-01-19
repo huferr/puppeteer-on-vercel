@@ -16,7 +16,7 @@ export default function Home() {
       `/api/screenshot?url=${
         process.env.NODE_ENV === 'production'
           ? window.location.href
-          : 'https://puppeteer-on-vercel-six.vercel.app/'
+          : 'https://google.com'
       }`,
       {
         method: 'GET',
