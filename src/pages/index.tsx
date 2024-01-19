@@ -23,7 +23,7 @@ export default function Home() {
       }
     )
       .then((res) => res.json())
-      .then((res) => res.response.url);
+      .then((res) => res.response?.url);
 
     setUrl(response);
     setLoading(false);
