@@ -17,9 +17,12 @@ export default async function handler(
     requestUrl.searchParams.append('response_type', 'json');
 
     try {
-      const response = await fetch(requestUrl.toString()).then((res) =>
-        res.json()
-      );
+      const response = await fetch(requestUrl.toString()).then((res) => {
+        console.log('res', res);
+        console.log('res to JSON', res.json());
+
+        return res.json();
+      });
 
       console.log('response', response);
 
