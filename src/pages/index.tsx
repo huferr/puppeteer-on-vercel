@@ -7,21 +7,25 @@ import { useState } from 'react';
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
-  const [base64, setBase64] = useState('');
+  const [url, setUrl] = useState('');
   const [loading, setLoading] = useState(false);
 
   const takeScreenshot = async () => {
     setLoading(true);
     const response = await fetch(
-      `/api/screenshot?url=${window.location.href}`,
+      `/api/screenshot?url=${
+        process.env.NODE_ENV === 'production'
+          ? window.location.href
+          : 'https://google.com'
+      }`,
       {
         method: 'GET',
       }
     )
       .then((res) => res.json())
-      .then((res) => res.base64);
+      .then((res) => res.response.url);
 
-    setBase64(response);
+    setUrl(response);
     setLoading(false);
   };
 
@@ -135,7 +139,7 @@ export default function Home() {
         </button>
 
         {loading && <p>Loading...</p>}
-        {base64 && (
+        {url && (
           <div
             style={{
               display: 'flex',
@@ -147,9 +151,9 @@ export default function Home() {
             <p>Screenshot taken</p>
             <button
               style={{ padding: '6px 8px', fontSize: 14, cursor: 'pointer' }}
-              onClick={() => navigator.clipboard.writeText(base64)}
+              onClick={() => window.open(url, '_blank')}
             >
-              Click to Copy Base64
+              Click to see the screenshot taken
             </button>
           </div>
         )}
