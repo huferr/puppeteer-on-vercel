@@ -11,6 +11,7 @@
   "dependencies": {
     "@sparticuz/chromium": "^106.0.2",
     "next": "14.0.4",
+    "playwright-core": "^1.41.0",
     "puppeteer": "18.0.5",
     "puppeteer-core": "^18.0.5",
     "react": "^18",
