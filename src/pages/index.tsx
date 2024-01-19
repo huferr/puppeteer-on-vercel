@@ -16,14 +16,19 @@ export default function Home() {
       `/api/screenshot?url=${
         process.env.NODE_ENV === 'production'
           ? window.location.href
-          : 'https://google.com'
+          : 'https://puppeteer-on-vercel-six.vercel.app/'
       }`,
       {
         method: 'GET',
       }
     )
-      .then((res) => res.json())
-      .then((res) => res.response?.url);
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        console.log('res', res);
+        return res.response?.url;
+      });
 
     setUrl(response);
     setLoading(false);
