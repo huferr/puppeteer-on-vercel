@@ -13,11 +13,7 @@ export default function Home() {
   const takeScreenshot = async () => {
     setLoading(true);
     const response = await fetch(
-      `/api/screenshot?url=${
-        process.env.NODE_ENV === 'production'
-          ? window.location.href
-          : 'https://app.artemis.xyz/dashboard-builder/703'
-      }`,
+      `/api/screenshot?url=https://app.artemis.xyz/dashboard-builder/703`,
       {
         method: 'GET',
       }

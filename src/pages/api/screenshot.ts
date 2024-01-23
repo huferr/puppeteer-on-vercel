@@ -19,7 +19,10 @@ export default async function handler(
   requestUrl.searchParams.append('output', 'json');
   requestUrl.searchParams.append('file_type', 'png');
   requestUrl.searchParams.append('ttl', '360');
-  requestUrl.searchParams.append('selector', '.react-grid-layout');
+  requestUrl.searchParams.append('clip[x])', '220');
+  requestUrl.searchParams.append('clip[y])', '0');
+  requestUrl.searchParams.append('clip[height])', '1080');
+  requestUrl.searchParams.append('clip[width])', '1920');
 
   try {
     const response = await fetch(requestUrl.toString()).then((res) =>
