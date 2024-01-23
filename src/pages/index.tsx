@@ -16,7 +16,7 @@ export default function Home() {
       `/api/screenshot?url=${
         process.env.NODE_ENV === 'production'
           ? window.location.href
-          : 'https://google.com'
+          : 'https://app.artemis.xyz'
       }`,
       {
         method: 'GET',
@@ -26,8 +26,7 @@ export default function Home() {
         return res.json();
       })
       .then((res) => {
-        console.log('res', res);
-        return res.response?.url;
+        return res.response?.screenshot;
       });
 
     setUrl(response);

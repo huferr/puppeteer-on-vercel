@@ -7,14 +7,18 @@ export default async function handler(
   if (req.method === 'GET') {
     const url = req.query.url as string;
 
-    const requestUrl = new URL('https://api.apiflash.com/v1/urltoimage');
+    const requestUrl = new URL('https://shot.screenshotapi.net/screenshot');
 
-    requestUrl.searchParams.append('access_key', process.env.API_FLASH_KEY!);
+    requestUrl.searchParams.append('token', process.env.SCREENSHOT_API_KEY!);
     requestUrl.searchParams.append('url', url);
-    requestUrl.searchParams.append('wait_until', 'network_idle');
+    requestUrl.searchParams.append('wait_for_event', 'networkidle');
     requestUrl.searchParams.append('width', '1920');
     requestUrl.searchParams.append('height', '1080');
-    requestUrl.searchParams.append('response_type', 'json');
+    requestUrl.searchParams.append('fresh', 'true');
+    requestUrl.searchParams.append('output', 'json');
+    requestUrl.searchParams.append('file_type', 'png');
+    requestUrl.searchParams.append('ttl', '360');
+    // requestUrl.searchParams.append('selector', '%23test');
 
     try {
       const response = await fetch(requestUrl.toString()).then((res) => {
