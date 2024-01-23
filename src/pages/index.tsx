@@ -16,7 +16,7 @@ export default function Home() {
       `/api/screenshot?url=${
         process.env.NODE_ENV === 'production'
           ? window.location.href
-          : 'https://app.artemis.xyz'
+          : 'https://app.artemis.xyz/dashboard-builder/703'
       }`,
       {
         method: 'GET',
